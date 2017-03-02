@@ -1,0 +1,41 @@
+print('Apocalypse Survival')
+print('')
+# Intro
+print('Hello User, in this text based game you will be placed in a apocalyptic \nscenario. In the beginning, you will be given 4 options and these options will \naffect your journey. Along your journey, you will enocunter many scenarios and \nyour decisions will affect your outcome. ')
+print('')
+# Rules
+print('Below The Rules Will be Listed: ')
+print()
+print('1)Your Party Size Consists of Three people, meaning you have three lives')
+print('2)At each destination there will be 3 choices a long with a status check and a \nquit function')
+print('3)You have 5 inventory slots, you will be able to pick from items prior to \ndeparture')
+print('4)Have Fun!')
+print()
+# Lore
+print('Lore:')
+print()
+print('This takes place in an apocalyptic scenario, the military base you are aiming \nfor is 200m away. You are being chased by raiders who are attempting to kill \nyou. If you beat them to the base, you will survive.')
+print('--------------------------------------------------------------------------------')
+print()
+# Variable Setup
+inventory = 'Your Inventory:'
+party = input('Name Your Party: ')
+mom = input('What is your mothers first name? ')
+dad = input('What is your fathers first name? ') 
+child = input('What is your childs first name? ')
+print()
+print('Inventory Selection:')
+print(str('Your Choices for Slot 1 are: A) Knife, B) Pistol, C) Baseball Bat'))
+
+slot_1 = input('Please input the letter corresponding to your choice: ')
+
+if slot_1 == 'a' or slot_1 == 'A':
+    slot_1 = 'Knife'
+    inventory = inventory, slot_1
+    print(inventory)
+    
+elif slot_1 == 'b' or slot_1 == 'B':
+    slot_1 = 'Pistol'
+    inventory = inventory,slot_1
+    print(inventory)
+
