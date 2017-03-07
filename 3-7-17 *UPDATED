@@ -1,0 +1,170 @@
+import random
+print('Apocalypse Survival')
+print('')
+# Intro
+print('Hello User, in this text based game you will be placed in a apocalyptic \nscenario. In the beginning, you will be given 4 options and these options will \naffect your journey. Along your journey, you will enocunter many scenarios and \nyour decisions will affect your outcome. ')
+print('')
+# Rules
+print('Below The Rules Will be Listed: ')
+print()
+print('1) Your Party Size Consists of Three people, meaning you have three lives')
+print('2) At each destination there will be 3 choices a long with a status check and a \nquit function')
+print('3) You will begin with 3 inventory slots and go up to 5 items, you will be able \nto pick from items prior to \ndeparture')
+print('4) Have Fun!')
+print()
+# Lore
+print('Lore:')
+print()
+print('This takes place in an apocalyptic scenario, the military base you are aiming \nfor is 200m away. You are being chased by bandits who are attempting to kill \nyou. If you beat them to the base, you will survive.')
+print()
+print('--------------------------------------------------------------------------------')
+print()
+# Variable Setup
+inventory = 'Your Inventory:'
+party = input('Name Your Party: ')
+mom = input('What is your mothers first name? ')
+dad = input('What is your fathers first name? ') 
+child = input('What is your childs first name? ')
+bandit_distance = 0 # Delay them for 2 turns
+item_rng = 0
+slot_4 = 0 
+hunger_a = 150
+hunger_b = 150
+hunger_c = 150
+thirst_a = 100
+thirst_b = 100 
+thirst_c = 100
+life = 3
+distance = 201 # create if statement involving distance equaling 200m the game ends
+print()
+# Prerequisite Setup
+if hunger_a == 0:
+    print('The father of the party has died due to starvation')
+    life = life - 1
+if hunger_b == 0:
+    print('The mother of the party has died due to starvation')
+    life = life - 1
+if hunger_c == 0:
+    print('The child of the party has died due to starvation')
+    life = life - 1
+if thirst_a == 0:
+    print('The father of the party has died due to dehydration')
+    life = life - 1
+if thirst_b == 0:
+    print('The mother of the party has died due to dehydration')
+    life = life - 1
+if thirst_c == 0:
+    print('The child of the party has died due to dehydration')
+    life = life - 1
+if bandit_distance == distance:
+    print('The party has died, the bandits have caught up to you')
+
+# Inventory Setup
+print('Inventory Selection:')
+print(str('Your Choices for Slot 1 are: A) Knife, B) Pistol, C) Baseball Bat'))
+
+slot_1 = input('Please input the letter corresponding to your choice: ')
+
+if slot_1 == 'a' or slot_1 == 'A':
+    slot_1 = 'Knife,'
+    
+elif slot_1 == 'b' or slot_1 == 'B':
+    slot_1 = 'Pistol,'
+
+elif slot_1 == 'c' or slot_1 == 'C':
+    slot_1 = "Baseball Bat,"
+
+print()
+print(str('Your Choices for Slot 2 are: A) Medkit B) Gasmask C) Map'))
+slot_2 = input('Please input the letter correspondind to your choice: ')
+
+if slot_2 == 'a' or slot_2 == 'A':
+    slot_2 = 'Medkit,'
+
+elif slot_2 == 'b' or slot_2 == 'B':
+    slot_2 = 'Gasmask,'
+
+elif slot_2 == 'c' or slot_2 == 'C':
+    slot_2 = "Map,"
+
+print()
+print(str('Your Choices for Slot 3 are: A) Flashlight B) Radio C) Multitool'))
+slot_3 = input('Please input the letter correspondind to your choice: ')
+
+if slot_3 == 'a' or slot_3 == 'A':
+    slot_3 = 'Flashlight'
+
+elif slot_3 == 'b' or slot_3 == 'B':
+    slot_3 = 'Radio'
+
+elif slot_3 == 'c' or slot_3 == 'C':
+    slot_3 = "Multitool"
+    
+print()
+print('Your inventory consists of:', slot_1,slot_2,slot_3)
+# The Game
+print('--------------------------------------------------------------------------------')
+
+var = True
+while var == True:
+    print()
+    print('Your Journey begins... the family all awaken to a siren and immediatley prepare to leave \nCurrent Inventory:',slot_1,slot_2,slot_3)
+    print()
+    print('You are approached with a decison, A) Leave B) Spend the night C) Scrounge for \nSupplies D) Status Check E) Quit')
+    print()
+    decision_1 = input('Your Choice: ')
+    if decision_1 == 'a' or decision_1 == 'A':
+        distance = random.randrange(20,35)
+        print('You traveled a distance of:',distance,'miles')
+        print()
+        print('You come across an abondon house on your journey, do you A) Progress on, B) Raid it C) Spend the night D) Status Check E) Quit')
+        decision_2 = input('Your Choice: ')
+        if decision_2 == 'A' or decision_2 == 'a':
+            print('You travel a distance of:',distance,'miles')
+            distance = distance + distance
+            print('Current Distance:',distance,'miles')
+            # 3 item slots
+        elif decision_2 == 'b' or decision_2 == 'B':
+            item_rng = random.randrange(1,5)
+        if item_rng == 1:
+            print('You search the house only to find a deck of cards')
+            slot_5 = 'Cards'
+            print('Your inventory consists of:',slot_1,slot_2,slot_3)
+        elif item_rng == 2 or item_rng == 3 or item_rng == 4 or item_rng == 5:
+            
+            print('You find nothing useful here')
+            print('Your inventory consists of:',slot_1,slot_2,slot_3)
+        elif decision_2 == 'c' or decision_2 == 'C':
+            print('You spend the night, upon waking up you realize that you have been followed by bandits who are',distance,'miles behind you.')
+        elif decision_2 == 'd' or decision_2 == 'D':
+            print(dad +'\nHunger:',hunger_a,'Thirst:',thirst_a)
+            print(mom +'\nHunger:',hunger_b,'Thirst:',thirst_b)
+            print(child +'\nHunger:',hunger_c,'Thirst',thirst_c)
+        elif decision_2 == 'e' or 'E':
+            quit
+    elif decision_1 == 'b' or decision_1 == 'B':
+        print('You spend the night only to realize you wasted your time')
+
+    elif decision_1 == 'c' or decision_1 == 'C':
+        item_rng = random.randrange(1,5)
+        if item_rng == 1:
+            slot_4 = 'Matches'
+            print('You come across some matches and decide that they are useful.')
+            print('Your inventory consists of:',slot_1,slot_2,slot_3,slot_4)
+        
+        elif item_rng == 2:
+            slot_4 = 'Cell Phone'
+            print('You come acrros a cell phone, it may provide some use in the future')
+            print('Your inventory consists of:',slot_1,slot_2,slot_3,slot_4)
+
+        elif item_rng == 3 or item_rng == 4 or item_rng == 5:
+            print('You scrounge for items only to find nothing')
+            print('Your inventory consists of:',slot_1,slot_2,slot_3)
+
+    elif decision_1 == 'd' or decision_1 == 'D':
+        print(dad +'\nHunger:',hunger_a,'Thirst:',thirst_a)
+        print(mom +'\nHunger:',hunger_b,'Thisrt:',thirst_b)
+        print(child +'\nHunger:',hunger_c,'Thirst',thirst_c)
+        var = True
+    elif decision_1 == 'e' or decision_1 == 'E':
+        quit
